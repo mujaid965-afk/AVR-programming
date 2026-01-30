@@ -13,14 +13,27 @@
 
 int main(void)
 {
-    DDRB|=(1<<DDB5);// configuring Pin 5 as output
-    while (1) 
+   // Set PB0 and PB1 as output
+    DDRB |= (1 << PB0) | (1 << PB1);
+
+    while (1)
     {
-		PORTB|=(1<<PB5);
-		_delay_ms(1000);
-		PORTB&=~(1<<PB5);
-		_delay_ms(1000);
-		
+        // CLOCKWISE
+        PORTB |= (1 << PB0);   // IN1 = 1
+        PORTB &= ~(1 << PB1);  // IN2 = 0
+        _delay_ms(2000);
+
+        // STOP
+        PORTB &= ~((1 << PB0) | (1 << PB1));
+        _delay_ms(2000);
+
+        // ANTICLOCKWISE
+        PORTB |= (1 << PB1);   // IN2 = 1
+        PORTB &= ~(1 << PB0);  // IN1 = 0
+        _delay_ms(2000);
+
+        // STOP
+        PORTB &= ~((1 << PB0) | (1 << PB1));
+        _delay_ms(2000);
     }
 }
-
