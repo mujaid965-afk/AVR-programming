@@ -12,9 +12,9 @@
     <OutputFileName>$(MSBuildProjectName)</OutputFileName>
     <OutputFileExtension>.elf</OutputFileExtension>
     <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
-    <AssemblyName>switcgh_pulldown</AssemblyName>
-    <Name>switcgh_pulldown</Name>
-    <RootNamespace>switcgh_pulldown</RootNamespace>
+    <AssemblyName>blink1</AssemblyName>
+    <Name>blink1</Name>
+    <RootNamespace>blink1</RootNamespace>
     <ToolchainFlavour>Native</ToolchainFlavour>
     <KeepTimersRunning>true</KeepTimersRunning>
     <OverrideVtor>false</OverrideVtor>

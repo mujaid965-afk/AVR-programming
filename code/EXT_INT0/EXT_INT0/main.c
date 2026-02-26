@@ -8,10 +8,14 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
+uint8_t flag=0;
 
 ISR(INT0_vect) // interrupt vector table
 {
-	PORTB ^=(1<<PB4);
+	PORTB |= (1<<PB4);
+	_delay_ms(5000);
+	PORTB &=~(1<<PB4);
+}
 	
 
 int main(void)
@@ -26,9 +30,16 @@ int main(void)
     while (1) 
     {
 		PORTB |= (1<<PB5);
-		_delay_ms(1000);
+		_delay_ms(3000);
 		PORTB &=~(1<<PB5);
-		_delay_ms(1000);
-    }
+		_delay_ms(3000);
+		/*if(flag==1)
+		{
+			PORTB |= (1<<PB4);
+			_delay_ms(5000);
+			PORTB &=~(1<<PB4);
+			flag=0;
+    }*/
 }
 
+}

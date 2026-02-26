@@ -14,7 +14,7 @@ void PWM0_Init(void)
 	
 	// Fast PWM mode (WGM00=1, WGM01=1)
 	TCCR0A |= (1 << WGM00) | (1 << WGM01);
-	
+	w
 	
 	// Non-inverting mode
 	TCCR0A |= (1 << COM0A1);

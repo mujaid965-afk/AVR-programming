@@ -15,17 +15,19 @@ int main(void)
 
      /* Configure PB5 as OUTPUT */
      DDRB |= (1 << DDB5);    // PB5 = output
-
+	 PORTD|=(1<<PD4);
      while (1)
      {
 	     /* Check if button on PD4 is pressed */
 	     if (PIND & (1 << PD4))
 	     {
-		     PORTB |= (1 << PD5);   // Turn ON output (LED/motor)
+			 		     PORTB &=~(1 << PD5);  // Turn OFF output
 	     }
 	     else
 	     {
-		     PORTB &= ~(1 << PD5);  // Turn OFF output
+
+			 
+			 PORTB |= (1 << PD5);   // Turn ON output (LED/motor)
 	     }
      }
      }

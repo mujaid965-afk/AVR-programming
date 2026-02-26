@@ -85,11 +85,11 @@ int main(void)
 	while (1)
 	{
 		// CLOCKWISE
-		PORTB |= (1 << DDB5);   // IN1 = 1
+		PORTB |= (1 << PB5);   // IN1 = 1
   86:	85 b1       	in	r24, 0x05	; 5
   88:	80 62       	ori	r24, 0x20	; 32
   8a:	85 b9       	out	0x05, r24	; 5
-		PORTB &= ~(1 << DDB4);  // IN2 = 0
+		PORTB &= ~(1 << PB4);  // IN2 = 0
   8c:	85 b1       	in	r24, 0x05	; 5
   8e:	8f 7e       	andi	r24, 0xEF	; 239
   90:	85 b9       	out	0x05, r24	; 5
@@ -100,64 +100,64 @@ int main(void)
 
 	__builtin_avr_delay_cycles(__ticks_dc);
   92:	2f ef       	ldi	r18, 0xFF	; 255
-  94:	87 ea       	ldi	r24, 0xA7	; 167
-  96:	91 e6       	ldi	r25, 0x61	; 97
+  94:	8f e4       	ldi	r24, 0x4F	; 79
+  96:	93 ec       	ldi	r25, 0xC3	; 195
   98:	21 50       	subi	r18, 0x01	; 1
   9a:	80 40       	sbci	r24, 0x00	; 0
   9c:	90 40       	sbci	r25, 0x00	; 0
   9e:	e1 f7       	brne	.-8      	; 0x98 <main+0x18>
   a0:	00 c0       	rjmp	.+0      	; 0xa2 <main+0x22>
   a2:	00 00       	nop
-		_delay_ms(2000);
+		_delay_ms(4000);
 
 		// STOP
-		PORTB &= ~(1 << DDB5) ;
+		PORTB &= ~(1 << PB4) ;
   a4:	85 b1       	in	r24, 0x05	; 5
-  a6:	8f 7d       	andi	r24, 0xDF	; 223
+  a6:	8f 7e       	andi	r24, 0xEF	; 239
   a8:	85 b9       	out	0x05, r24	; 5
-		PORTB &= ~ (1 << DDB5);
+		PORTB &= ~ (1 << PB5);
   aa:	85 b1       	in	r24, 0x05	; 5
   ac:	8f 7d       	andi	r24, 0xDF	; 223
   ae:	85 b9       	out	0x05, r24	; 5
   b0:	2f ef       	ldi	r18, 0xFF	; 255
-  b2:	87 ea       	ldi	r24, 0xA7	; 167
-  b4:	91 e6       	ldi	r25, 0x61	; 97
+  b2:	83 e2       	ldi	r24, 0x23	; 35
+  b4:	94 ef       	ldi	r25, 0xF4	; 244
   b6:	21 50       	subi	r18, 0x01	; 1
   b8:	80 40       	sbci	r24, 0x00	; 0
   ba:	90 40       	sbci	r25, 0x00	; 0
   bc:	e1 f7       	brne	.-8      	; 0xb6 <main+0x36>
   be:	00 c0       	rjmp	.+0      	; 0xc0 <main+0x40>
   c0:	00 00       	nop
-		_delay_ms(2000);
+		_delay_ms(5000);
 
 		// ANTICLOCKWISE
-		PORTB |= (1 << DDB4);   // IN2 = 1
+		PORTB |= (1 << PB4);   // IN2 = 1
   c2:	85 b1       	in	r24, 0x05	; 5
   c4:	80 61       	ori	r24, 0x10	; 16
   c6:	85 b9       	out	0x05, r24	; 5
-		PORTB &= ~(1 << DDB5);  // IN1 = 0
+		PORTB &= ~(1 << PB5);  // IN1 = 0
   c8:	85 b1       	in	r24, 0x05	; 5
   ca:	8f 7d       	andi	r24, 0xDF	; 223
   cc:	85 b9       	out	0x05, r24	; 5
   ce:	2f ef       	ldi	r18, 0xFF	; 255
-  d0:	87 ea       	ldi	r24, 0xA7	; 167
-  d2:	91 e6       	ldi	r25, 0x61	; 97
+  d0:	8f e4       	ldi	r24, 0x4F	; 79
+  d2:	93 ec       	ldi	r25, 0xC3	; 195
   d4:	21 50       	subi	r18, 0x01	; 1
   d6:	80 40       	sbci	r24, 0x00	; 0
   d8:	90 40       	sbci	r25, 0x00	; 0
   da:	e1 f7       	brne	.-8      	; 0xd4 <main+0x54>
   dc:	00 c0       	rjmp	.+0      	; 0xde <main+0x5e>
   de:	00 00       	nop
-		_delay_ms(2000);
+		_delay_ms(4000);
 
 		// STOP
-		PORTB &= ~((1 << DDB4) | (1 << DDB5));
+		PORTB &= ~((1 << PB4) | (1 << PB5));
   e0:	85 b1       	in	r24, 0x05	; 5
   e2:	8f 7c       	andi	r24, 0xCF	; 207
   e4:	85 b9       	out	0x05, r24	; 5
   e6:	2f ef       	ldi	r18, 0xFF	; 255
-  e8:	87 ea       	ldi	r24, 0xA7	; 167
-  ea:	91 e6       	ldi	r25, 0x61	; 97
+  e8:	83 e2       	ldi	r24, 0x23	; 35
+  ea:	94 ef       	ldi	r25, 0xF4	; 244
   ec:	21 50       	subi	r18, 0x01	; 1
   ee:	80 40       	sbci	r24, 0x00	; 0
   f0:	90 40       	sbci	r25, 0x00	; 0
