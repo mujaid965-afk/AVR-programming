@@ -14,10 +14,12 @@ int main(void)
 {
 	lcd_init();
 	lcd_set_cursor(0, 0);
-	lcd_print("Hello LCD");
+	lcd_print("Hi ");
 
 	lcd_set_cursor(1, 0);
-	lcd_print("It works! ");
+	lcd_print("count starts ");
+	
+	
 
 	// small demo: print a number
 	lcd_print_uint16(1234);
